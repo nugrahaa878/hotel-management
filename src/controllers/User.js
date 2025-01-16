@@ -3,14 +3,20 @@ import { QueryUserById, QueryListOfUsers } from "../services/User.js";
 const GetAllUsers = (req, res) => {
   const userList = QueryListOfUsers();
 
-  return res.render("userAll", { userList });
+  return res.json({
+    status: "success",
+    data: userList,
+  });
 };
 
 const GetUser = (req, res) => {
   const userId = req.params.id;
   const userData = QueryUserById(userId);
 
-  return res.render("userById", { userData });
+  return res.json({
+    status: "success",
+    data: userData,
+  });
 };
 
 export { GetAllUsers, GetUser };
