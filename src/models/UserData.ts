@@ -1,3 +1,9 @@
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
 const USER_DATA = [
   {
     id: 1,
