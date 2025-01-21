@@ -1,6 +1,7 @@
 import express, { Express, ErrorRequestHandler } from "express";
 import cors from "cors";
 import { routerUser } from "./routes/User";
+import { initializeDatabase } from "./db/init";
 
 // Express Setting
 const app: Express = express();
@@ -43,8 +44,19 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   });
 };
 
+const startServer = async () => {
+  try {
+    await initializeDatabase();
+
+    app.listen(port, () => {
+      console.log(`[Server] Server running on http://localhost:${port}`);
+    });
+  } catch (error) {
+    console.error("Failed to start server:", error);
+    process.exit(1);
+  }
+};
+
 app.use(errorHandler);
 
-app.listen(port, () => {
-  console.log(`[Server] Server running on http://localhost:${port}`);
-});
+startServer();
