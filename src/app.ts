@@ -2,6 +2,7 @@ import express, { Express, ErrorRequestHandler } from "express";
 import cors from "cors";
 import { routerUser } from "./routes/User";
 import { initializeDatabase } from "./db/init";
+import routerHotels from "./routes/hotelRoutes";
 
 // Express Setting
 const app: Express = express();
@@ -13,7 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // API Routes
-app.use("/api/user", routerUser);
+app.use("/api/v1/users", routerUser);
+app.use("/api/v1/hotels", routerHotels);
 
 // Error handling middleware
 interface ErrorWithStatus extends Error {
