@@ -1,5 +1,9 @@
 import { pool } from "../config/database";
-import { createTables, createHotels } from "./migrations/createTables";
+import {
+  createTables,
+  createHotels,
+  createRooms,
+} from "./migrations/createTables";
 
 export async function initializeDatabase() {
   try {
@@ -8,6 +12,7 @@ export async function initializeDatabase() {
 
     await createTables();
     await createHotels();
+    await createRooms();
 
     return true;
   } catch (error) {

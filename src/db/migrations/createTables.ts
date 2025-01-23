@@ -37,4 +37,25 @@ const createHotels = async () => {
   }
 };
 
-export { createHotels, createTables };
+const createRooms = async () => {
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS rooms (
+        id SERIAL PRIMARY KEY,
+        hotel_id INTEGER NOT NULL,
+        type VARCHAR(100) NOT NULL,
+        unit_number VARCHAR(100) NOT NULL,
+        floor_number INTEGER NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (hotel_id) REFERENCES hotels(id) ON DELETE CASCADE,
+        UNIQUE(hotel_id, unit_number)
+      )`);
+    console.log("[Database] Rooms table created successfully");
+  } catch (error) {
+    console.error("[Database] Error creating room table", error);
+    throw error;
+  }
+};
+
+export { createHotels, createTables, createRooms };
