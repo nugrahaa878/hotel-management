@@ -1,5 +1,5 @@
 import { Hotel } from "@/types/hotel";
-import { pool } from "../config/database";
+import { pool } from "@/config/database";
 
 class HotelService {
   async createHotel(

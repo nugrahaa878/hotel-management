@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
-import hotelService from "../services/hotel.service";
-import { Hotel } from "../types/hotel";
-import { CreateHotelRequest } from "../types/requests/hotel.request";
+import hotelService from "@/services/hotel.service";
+import { Hotel } from "@/types/hotel";
+import { CreateHotelRequest } from "@/types/requests/hotel.request";
 import { HotelReponse } from "@/types/responses/hotel.response";
+import { Request, Response } from "express";
 
 class HotelController {
   // Use arrow function to automatically bind 'this'
