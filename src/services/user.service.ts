@@ -1,4 +1,4 @@
-import { User, USER_DATA } from "../models/UserData";
+import { User, USER_DATA } from "../models/user.model";
 
 const QueryUserById = (id: number): User | null => {
   const user = USER_DATA.find((userData) => userData.id === id);

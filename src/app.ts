@@ -1,8 +1,8 @@
 import express, { Express, ErrorRequestHandler } from "express";
 import cors from "cors";
-import { routerUser } from "./routes/User";
+import { routerUser } from "./routes/user.routes";
 import { initializeDatabase } from "./db/init";
-import routerHotels from "./routes/hotelRoutes";
+import routerHotels from "./routes/hotel.routes";
 
 // Express Setting
 const app: Express = express();

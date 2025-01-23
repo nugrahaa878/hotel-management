@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import hotelService from "../services/hotelService";
+import hotelService from "../services/hotel.service";
 import { Hotel } from "../types/hotel";
 import { CreateHotelRequest } from "../types/requests/hotel.request";
 import { HotelReponse } from "@/types/responses/hotel.response";

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { QueryUserById, QueryListOfUsers } from "../services/User";
+import { QueryUserById, QueryListOfUsers } from "../services/user.service";
 
 const GetAllUsers = (req: Request, res: Response): void => {
   const userList = QueryListOfUsers();
